@@ -1,7 +1,11 @@
 import { Text } from "react-native";
 
-function Title() {
-  return <Text>Título da página</Text>;
+interface TitleProps {
+  text: string;
+}
+
+function Title({ text }: TitleProps) {
+  return <Text>{text}</Text>;
 }
 
 export default Title;

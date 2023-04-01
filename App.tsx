@@ -5,7 +5,7 @@ import Title from "./src/Title";
 export default function App() {
   return (
     <View style={styles.container}>
-      <Title />
+      <Title text="Olá props" />
 
       <Text>Olá Mestres</Text>
       <StatusBar style="auto" />
