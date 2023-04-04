@@ -1,12 +1,13 @@
 import { Text } from "react-native";
+import styles from "./styles";
 
 interface TitleProps {
   text: string;
-  onPress: () => void;
+  onPress?: () => void;
 }
 
 function Title({ text, onPress }: TitleProps) {
-  return <Text>{text}</Text>;
+  return <Text style={styles.title}>{text}</Text>;
 }
 
 export default Title;

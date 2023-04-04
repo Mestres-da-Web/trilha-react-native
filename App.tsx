@@ -4,7 +4,7 @@ import Login from "./src/screens/Login";
 
 export default function App() {
   return (
-    <View>
+    <View style={{ height: "100%" }}>
       {/* <StatusBar style="dark" /> */}
       <Login />
     </View>
