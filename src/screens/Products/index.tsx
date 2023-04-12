@@ -1,10 +1,10 @@
+import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { Button, Text, View } from "react-native";
+import { RootStackParamList } from "../../../App";
 
-interface ProductsProps {
-  navigation: any;
-}
+type Props = NativeStackScreenProps<RootStackParamList, "Products">;
 
-function Products({ navigation }: ProductsProps) {
+function Products({ navigation, route }: Props) {
   return (
     <View>
       <Text>Hello from Products</Text>
