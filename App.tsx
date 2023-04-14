@@ -5,7 +5,7 @@ import Products from "./src/screens/Products";
 
 export type RootStackParamList = {
   Login: undefined;
-  Products: undefined;
+  Products?: { productName: string };
 };
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
@@ -13,7 +13,7 @@ const Stack = createNativeStackNavigator<RootStackParamList>();
 export default function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Products">
+      <Stack.Navigator>
         <Stack.Screen name="Login" component={Login} />
         <Stack.Screen
           name="Products"

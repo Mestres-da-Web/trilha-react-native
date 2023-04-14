@@ -8,10 +8,11 @@ function Products({ navigation, route }: Props) {
   return (
     <View>
       <Text>Hello from Products</Text>
+      <Text>Parâmetro enviado: {route.params?.productName}</Text>
       <Button
         title="Login"
         onPress={() => {
-          navigation.navigate("Login");
+          navigation.navigate("Products");
         }}
       />
     </View>
