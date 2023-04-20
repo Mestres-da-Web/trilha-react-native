@@ -1,27 +1,50 @@
 import { useState } from "react";
-import { Switch, Text, View } from "react-native";
+import { Button, RefreshControl, ScrollView, Text, View } from "react-native";
+import Input from "../../components/Input";
 import styles from "./styles";
 
 const Examples = () => {
-  const [isActive, setIsActive] = useState(true);
+  const [refreshing, setRefresing] = useState(false);
 
-  const toggleSwitch = () => {
-    setIsActive(!isActive);
+  const handleRefresh = () => {
+    setRefresing(true);
+    // Requisitar novos dados
+    // Atualizar lista
+    setTimeout(() => {
+      setRefresing(false);
+    }, 2000);
   };
 
   return (
     <View>
-      <Text>Exemplos</Text>
-      <Switch
-        value={isActive}
-        onValueChange={toggleSwitch}
-        trackColor={{ true: "#767577", false: "#420066" }}
-        thumbColor={
-          isActive
-            ? styles.switchTrackActive.color
-            : styles.switchTrackInactive.color
+      <ScrollView
+        horizontal={false}
+        /* onScroll={(e) => {
+          console.log(e.nativeEvent);
+        }} */
+        pagingEnabled={false}
+        scrollEnabled={true}
+        decelerationRate={"fast"}
+        showsVerticalScrollIndicator={true}
+        contentOffset={{ x: 0, y: 0 }}
+        /* snapToOffsets={[300, 800]} */
+        keyboardDismissMode={"on-drag"}
+        keyboardShouldPersistTaps="handled"
+        refreshControl={
+          <RefreshControl refreshing={refreshing} onRefresh={handleRefresh} />
         }
-      />
+      >
+        <Text>Exemplos</Text>
+
+        <Input label="Nome" placeholder="Digite o seu nome" />
+        <Button title="Teste" />
+        <View style={styles.red} />
+        <View style={styles.blue} />
+        <View style={styles.yellow} />
+        <View style={styles.red} />
+        <View style={styles.blue} />
+        <View style={styles.yellow} />
+      </ScrollView>
     </View>
   );
 };

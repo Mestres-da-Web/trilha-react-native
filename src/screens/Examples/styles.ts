@@ -1,11 +1,22 @@
-import { StyleSheet } from "react-native";
+import { Dimensions, StyleSheet } from "react-native";
+
+const dimensions = Dimensions.get("screen");
 
 const styles = StyleSheet.create({
-  switchTrackActive: {
-    color: "#000",
+  red: {
+    width: dimensions.width,
+    height: 300,
+    backgroundColor: "red",
   },
-  switchTrackInactive: {
-    color: "#21ffb5",
+  blue: {
+    width: dimensions.width,
+    height: 300,
+    backgroundColor: "blue",
+  },
+  yellow: {
+    width: dimensions.width,
+    height: 300,
+    backgroundColor: "yellow",
   },
 });
 
