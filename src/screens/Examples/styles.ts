@@ -1,25 +1,33 @@
-import { Dimensions, StyleSheet } from "react-native";
-
-const dimensions = Dimensions.get("screen");
+import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
   red: {
-    width: dimensions.width,
+    width: 300,
     height: 300,
     backgroundColor: "red",
   },
   blue: {
-    width: dimensions.width,
+    width: 300,
     height: 300,
     backgroundColor: "blue",
   },
   yellow: {
-    width: dimensions.width,
+    width: 300,
     height: 300,
     backgroundColor: "yellow",
   },
+  modalView: {
+    flex: 1,
+    backgroundColor: "rgba(0,0,0,0.6)",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  modalContent: {
+    width: "80%",
+    height: "60%",
+    backgroundColor: "white",
+    borderRadius: 10,
+  },
 });
-
-export const colors = {};
 
 export default styles;
