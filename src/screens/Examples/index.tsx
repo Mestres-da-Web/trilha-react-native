@@ -1,49 +1,67 @@
-import { useState } from "react";
-import {
-  ActivityIndicator,
-  Button,
-  Modal,
-  ScrollView,
-  Text,
-  View,
-} from "react-native";
+import { FlatList, Text, TouchableOpacity, View } from "react-native";
 import styles from "./styles";
 
+interface DataProps {
+  id: number;
+  name: string;
+  price: number;
+  brand: string;
+  quantity: number;
+}
+
+const data: DataProps[] = [
+  { id: 1, name: "Teclado", price: 1234, brand: "Keychron", quantity: 332 },
+  { id: 2, name: "Mouse", price: 322, brand: "Logitech", quantity: 22 },
+  { id: 3, name: "Webcam", price: 554, brand: "Logitech", quantity: 32 },
+  { id: 4, name: "Monitor", price: 1222, brand: "LG", quantity: 94 },
+  { id: 5, name: "Notebook", price: 3345, brand: "Lenovo", quantity: 56 },
+];
+
 const Examples = () => {
-  const [isModalVisible, setIsModalVisible] = useState(false);
-
-  const handleShowModal = () => {
-    setIsModalVisible(true);
-  };
-
-  const handleCloseModal = () => {
-    setIsModalVisible(false);
-  };
-
   return (
-    <ScrollView>
-      <Text>Exemplos</Text>
-      <View style={styles.red} />
-      <View style={styles.blue} />
-      <View style={styles.yellow} />
-      <View style={styles.red} />
-      <View style={styles.blue} />
-      <View style={styles.yellow} />
-      <Button title="Exibir modal" onPress={handleShowModal} />
-
-      <Modal
-        visible={isModalVisible}
-        transparent
-        onRequestClose={handleCloseModal}
-        animationType="slide"
-      >
-        <View style={styles.modalView}>
-          <View style={styles.modalContent}>
-            <Button title="Fechar" onPress={handleCloseModal} />
+    <View>
+      <FlatList
+        data={data}
+        renderItem={({ item, index }) => {
+          return (
+            <TouchableOpacity style={[styles.container, { margin: 10 }]}>
+              <>
+                <Text style={styles.text}>Nome: {item.name}</Text>
+                <Text style={styles.text}>Marca: {item.brand}</Text>
+                <Text style={styles.text}>Valor: R$ {item.price}</Text>
+                <Text style={styles.text}>
+                  Quantidade: {item.quantity} unidades
+                </Text>
+                {/* <View style={styles.imageContainer} /> */}
+              </>
+            </TouchableOpacity>
+          );
+        }}
+        keyExtractor={(item) => item.id.toString()}
+        ItemSeparatorComponent={() => {
+          return <View style={styles.separator} />;
+        }}
+        ListFooterComponent={
+          <View>
+            <Text>Rodapé da lista</Text>
           </View>
-        </View>
-      </Modal>
-    </ScrollView>
+        }
+        ListFooterComponentStyle={styles.footer}
+        ListEmptyComponent={
+          <View style={styles.emptyContainer}>
+            <Text>Lista vazia</Text>
+          </View>
+        }
+        horizontal={false}
+        numColumns={2}
+        onEndReached={() => {
+          console.log("End reached");
+        }}
+        onEndReachedThreshold={0.5}
+        onRefresh={() => {}}
+        refreshing={false}
+      />
+    </View>
   );
 };
 

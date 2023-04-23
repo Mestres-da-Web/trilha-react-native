@@ -1,32 +1,32 @@
 import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
-  red: {
-    width: 300,
-    height: 300,
-    backgroundColor: "red",
+  container: {
+    padding: 20,
+    backgroundColor: "lightgrey",
+    width: "50%",
   },
-  blue: {
-    width: 300,
-    height: 300,
-    backgroundColor: "blue",
+  text: {
+    fontSize: 10,
   },
-  yellow: {
-    width: 300,
-    height: 300,
-    backgroundColor: "yellow",
+  imageContainer: {
+    width: 200,
+    height: 100,
+    backgroundColor: "grey",
   },
-  modalView: {
-    flex: 1,
-    backgroundColor: "rgba(0,0,0,0.6)",
+  separator: {
+    height: 2,
+    backgroundColor: "black",
+  },
+  footer: {
+    padding: 20,
+    borderWidth: 1,
+    margin: 5,
+  },
+  emptyContainer: {
+    height: 300,
     justifyContent: "center",
     alignItems: "center",
-  },
-  modalContent: {
-    width: "80%",
-    height: "60%",
-    backgroundColor: "white",
-    borderRadius: 10,
   },
 });
 
