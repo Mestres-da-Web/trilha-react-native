@@ -1,47 +1,20 @@
-import { useEffect } from "react";
-import {
-  AppState,
-  Button,
-  Dimensions,
-  Keyboard,
-  Linking,
-  PixelRatio,
-  Platform,
-  Text,
-  View,
-} from "react-native";
-import Input from "../../components/Input";
+import { useNavigation } from "@react-navigation/native";
+import { useContext } from "react";
+import { Button, Text, View } from "react-native";
+import { Context } from "./useContext";
 
 const Examples = () => {
-  const os = Platform.OS;
-  const dimensions = Dimensions.get("screen");
-  const pixelRatio = PixelRatio.getFontScale();
-
-  useEffect(() => {
-    const subcription = AppState.addEventListener("change", (status) => {
-      console.log("Mudança no estado do app detectada", status);
-    });
-    return () => {
-      subcription.remove();
-    };
-  }, []);
+  const contextData = useContext(Context);
 
   return (
     <View>
       <Text>Exemplos</Text>
-      <Input label="Nome" placeholder="Digite o seu nome" />
+      <Text>Nome do usuário: {contextData.name}</Text>
+      <Text>Email do usuário: {contextData.email}</Text>
       <Button
-        title="Remover teclado"
+        title="Atualizar nome"
         onPress={() => {
-          Keyboard.dismiss();
-        }}
-      />
-      <Button
-        title="URL"
-        onPress={() => {
-          Linking.openURL(
-            "https://reactnative.dev/docs/appstate#focus-android",
-          );
+          contextData.updateUsername("Jancer2");
         }}
       />
     </View>

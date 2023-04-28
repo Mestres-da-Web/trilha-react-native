@@ -1,4 +1,4 @@
-import { Button, View } from "react-native";
+import { Button, Text, View } from "react-native";
 import CheckboxWithLabel from "../../components/Checkbox";
 import Input from "../../components/Input";
 import Title from "../../components/Title";
