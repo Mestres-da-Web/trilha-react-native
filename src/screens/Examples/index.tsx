@@ -1,8 +1,7 @@
-import { Text, View } from "react-native";
-import UseMemoExample from "./useMemo";
+import UseCallbackExample from "./useCallback";
 
 const Examples = () => {
-  return <UseMemoExample />;
+  return <UseCallbackExample />;
 };
 
 export default Examples;
