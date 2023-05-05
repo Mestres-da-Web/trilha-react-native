@@ -1,7 +1,7 @@
-import UseCallbackExample from "./useCallback";
+import UseRefExample from "./useRef";
 
 const Examples = () => {
-  return <UseCallbackExample />;
+  return <UseRefExample />;
 };
 
 export default Examples;
