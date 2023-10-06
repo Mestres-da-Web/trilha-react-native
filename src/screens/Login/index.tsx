@@ -7,6 +7,7 @@ import styles from "./styles";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { RootStackParamList } from "../../../App";
 import api from "../../services/api";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 type Props = NativeStackScreenProps<RootStackParamList, "Login">;
 
@@ -28,9 +29,12 @@ const Login = ({ navigation, route }: Props) => {
     setFormData({ ...formData, password: text });
   };
 
-  const handleSubmit = () => {
-    console.log(formData);
-    api.login(formData);
+  const handleSubmit = async () => {
+    await api.login(formData);
+
+    const token = await AsyncStorage.getItem("access_token");
+
+    console.log("TOKEN", token);
   };
 
   return (
